@@ -1,0 +1,40 @@
+﻿@model Category
+
+
+<div class="container">
+    <h2>Create New Category</h2>
+
+    <form asp-controller="Category" asp-action="Create" method="post">
+        <div as="form-group" class="border p-3 mt-4">
+            @*<div asp-validation-summary="All"></div>*@
+            <div class="row p-1">
+            <label  asp-for="Name" for="name" class="control-label p-0"></label>
+            <input asp-for="Name"  id="name" class="form-control"   required />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div >
+            <div class="row p-1">
+            <label asp-for="DisplayOrder" for="order" class="control-label p-0"></label>
+            <input asp-for="DisplayOrder" id="order" class="form-control"  required />
+            <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+
+           </div>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" style="width:150px; margin-top:15px">Create</button>
+            <a href="@Url.Action("Index", "Category")" class="btn btn-secondary border form-control" style="width:200px; margin-top:15px; margin-left:30px;">Back to List</a>
+        </div>
+    </form>
+
+
+    @*the script code for injecting partial vaidation view for the main view to 
+        validate in the client side
+    *@
+    @section Scripts{
+    
+        @{
+            <partial name="_ValidationScriptsPartial"/>
+        }
+
+    }
+</div>
