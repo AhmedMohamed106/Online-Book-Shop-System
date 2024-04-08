@@ -1,4 +1,6 @@
-using BulkyWeb.Data;
+using Bulky.DataAccess.Data;
+using Bulky.DataAccess.Repository.IRepository;
+using Bulky.DataAccess.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -15,7 +17,8 @@ namespace BulkyWeb
             builder.Services.AddControllersWithViews();
             // Add Db context Sql server in project
             builder.Services.AddDbContext<ApplicationDbContext>(options=>
-            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))); 
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddScoped<IUnitOfwork, UnitOfwork>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -35,7 +38,7 @@ namespace BulkyWeb
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
         }

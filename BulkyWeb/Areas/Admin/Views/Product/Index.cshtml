@@ -1,0 +1,82 @@
+﻿@model List<Product>
+<div class="card shadow border-0 mt-4 ">
+    <div class="card-header bg-secondary bg-gradient m-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2"> Product List</h2>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+    <div class="card-body p-4">
+
+
+          
+               <div class="row  pb-3">
+
+                   <div class="col-2 text-end">
+                       <a asp-controller="Product" asp-action="Upsert" class="btn btn-primary" style="width:200px;hight:60px;">
+                          <i class="bi bi-plus-circle"></i> Create New Product 
+                       </a>
+                   </div>
+               </div>
+
+               <table id="tblData" class="table table-bordered table-striped" style="width:100%">
+                   <thead>
+                   <tr>
+
+                       <th>
+                            Title
+                       </th>
+                       @*<th>
+                             Description
+                       </th>*@
+                        <th>
+                           ISBN
+                       </th>                 
+                        <th>
+                           Price
+                       </th>
+                       <th>
+                           Author 
+                       </th>   
+                       <th>
+                           Category
+                       </th>  
+                       <th></th>
+                   </tr>
+                   </thead>
+                  @* <tbody>
+                    @foreach (var obj in Model.OrderBy(p => p.Price))
+                    {
+                               <tr>
+                                   <td> @obj.Title </td>
+                                   <td> @obj.Description</td>
+                                   <td> @obj.ISBN </td>
+                                   <td> @obj.Author</td>  
+                                   <td> @obj.Price</td>
+                                   <td> @obj.Category.Name</td>
+                                   <td>
+                                       <div class="w-100 btn-group" role="group">
+                                                     <a asp-controller="Product" asp-action="Upsert" asp-route-id="@obj.Id" class="btn btn-primary mx-2 w-500" style=" background-color: #1F75CB;color: white;">
+                                            <i class="bi bi-pencil-square"></i> Edit
+                                         </a>
+                                                  <a asp-controller="Product" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger mx-2" style="margin-right:50px">
+                                                    <i class="bi bi-trash3"></i> Delete
+                                             </a>
+                                       </div>
+                                   </td>
+                               </tr>
+                    }
+                   </tbody>*@
+               </table>
+           </div>
+           </div>
+        </div>
+
+        @section Scripts{
+                        <script src="~/js/product.js"> 
+                </script>
+
+        }

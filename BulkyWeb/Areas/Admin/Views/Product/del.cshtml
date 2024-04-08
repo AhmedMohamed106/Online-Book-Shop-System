@@ -1,0 +1,23 @@
+﻿@*@model Bulky.Models.Models.Product
+
+<div class="card shadow border-0 mt-4">
+    <div class="card-header bg-secondary bg-gradient m-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2"> Confirm Delete</h2>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="card-body p-4">
+        <p>Are you sure you want to delete the Product: @Model.Title?</p>
+
+        @using (Html.BeginForm("Delete", "Product", new { Id = Model.Id }, FormMethod.Post))
+        {
+                <input type="submit" value="Delete" class="btn btn-danger" />
+                        <a asp-action="Index" class="btn btn-secondary" style="background-color: #CCCCCC; color:black">Cancel</a>
+        }
+
+        </div>
+        </div>*@
